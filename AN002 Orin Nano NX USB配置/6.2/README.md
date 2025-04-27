@@ -16,7 +16,7 @@
 
      ```bash
      sudo cp orin_nano_4g.dtb /boot/dtb
-     sudo sed -i 's#nv-auto-config#nv-auto-config\n      FDT /boot/dtb/orin_nano_4g.dtb#g' /boot/extlinux/extlinux.conf
+     sudo sed -i 's#console=tty0#console=tty0\n      FDT /boot/dtb/orin_nano_4g.dtb#g' /boot/extlinux/extlinux.conf
      sudo reboot
      ```
      
@@ -24,7 +24,7 @@
 
      ```bash
      sudo cp orin_nano_8g.dtb /boot/dtb
-     sudo sed -i 's#nv-auto-config#nv-auto-config\n      FDT /boot/dtb/orin_nano_8g.dtb#g' /boot/extlinux/extlinux.conf
+     sudo sed -i 's#console=tty0#console=tty0\n      FDT /boot/dtb/orin_nano_8g.dtb#g' /boot/extlinux/extlinux.conf
      sudo reboot
      ```
      
@@ -32,7 +32,7 @@
 
      ```bash
      sudo cp orin_nx_8g.dtb /boot/dtb
-     sudo sed -i 's#nv-auto-config#nv-auto-config\n      FDT /boot/dtb/orin_nx_8g.dtb#g' /boot/extlinux/extlinux.conf
+     sudo sed -i 's#console=tty0#console=tty0\n      FDT /boot/dtb/orin_nx_8g.dtb#g' /boot/extlinux/extlinux.conf
      sudo reboot
      ```
      
@@ -40,7 +40,7 @@
 
      ```bash
      sudo cp orin_nx_16g.dtb /boot/dtb
-     sudo sed -i 's#nv-auto-config#nv-auto-config\n      FDT /boot/dtb/orin_nx_16g.dtb#g' /boot/extlinux/extlinux.conf
+     sudo sed -i 's#console=tty0#console=tty0\n      FDT /boot/dtb/orin_nx_16g.dtb#g' /boot/extlinux/extlinux.conf
      sudo reboot
      ```
 
