@@ -1,4 +1,4 @@
-# AN002 Orin Nano/NX USB配置说明
+# Orin Nano/NX USB配置说明
 
 本说明仅适用于设备Jetson Orin Nano/NX，在系统版本：**JetPack 5.1.5 (super)**中测试通过。
 

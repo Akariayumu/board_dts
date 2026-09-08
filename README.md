@@ -4,9 +4,9 @@
 
 ## 目录
 
-| 编号 | 说明 | 适用设备 |
-| --- | --- | --- |
-| [AN002](an002-orin-nano-nx-usb-config/) | Orin Nano/NX USB 配置 | Jetson Orin Nano / Orin NX |
+| 说明 | 适用设备 |
+| --- | --- |
+| [Orin Nano/NX USB 配置](orin-nano-nx-usb-config/) | Jetson Orin Nano / Orin NX |
 
 ## 目录命名约定
 
