@@ -10,7 +10,7 @@ Jetson Orin Nano/NX 刷入官方系统后，通过替换（或追加）设备树
 | [jetpack-5.1.4](jetpack-5.1.4/) | JetPack 5.1.4 | 替换 `/boot/dtb` 中的同名 DTB |
 | [jetpack-5.1.5-super](jetpack-5.1.5-super/) | JetPack 5.1.5 (super) | 替换 `/boot/dtb` 中的同名 DTB |
 | [jetpack-6.2](jetpack-6.2/) | JetPack 6.2 | 追加 DTB 并修改 `extlinux.conf` |
-| [jetpack-7.2](jetpack-7.2/) | JetPack 7.2 | 追加 DTB 并修改 `extlinux.conf`（**未验证**） |
+| [jetpack-7.2](jetpack-7.2/) | JetPack 7.2 | 追加 DTB 并修改 `extlinux.conf` |
 
 请按设备实际刷入的 JetPack 版本选择对应目录，并按目录内 `README.md` 操作。
 不同版本的 DTB 不可混用。

@@ -1,10 +1,6 @@
 # Orin Nano/NX USB配置说明
 
-> **本文为初稿，尚未在 JetPack 7.2 实机验证。**
-> 步骤按 JetPack 6.2 的流程推导而来，`extlinux.conf` 的路径与格式在 JetPack 7.x 上可能已变化，
-> 请以实际验证结果为准，验证通过后删除本提示。
-
-本说明仅适用于设备Jetson Orin Nano，系统版本：**JetPack 7.2**。
+本说明仅适用于设备Jetson Orin Nano，在系统版本：**JetPack 7.2**中测试通过。
 
 在刷入官方系统后，通过增加设备树，可使底板中的USB3.2端口和Type-C端口正常工作。
 
