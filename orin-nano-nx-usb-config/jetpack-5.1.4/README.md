@@ -1,72 +1,26 @@
-# Orin Nano/NX USB配置说明
+# Orin Nano/NX USB 配置 — JetPack 5.1.4
 
-本说明仅适用于设备Jetson Orin Nano/NX，在系统版本：**JetPack 5.1.4**中测试通过。
+适用于 JetPack 5.1.4，已通过硬件验证。
 
-在刷入官方系统后，通过替换设备树，可使底板中的USB3.2端口和Type-C端口正常工作。
+## 文件选择
 
-## 使用方法
+| 模块 | SKU | DTB |
+| --- | --- | --- |
+| Orin Nano 4G | p3767-0004 | `kernel_tegra234-p3767-0004-p3768-0000-a0.dtb` |
+| Orin Nano 8G | p3767-0003 | `kernel_tegra234-p3767-0003-p3768-0000-a0.dtb` |
+| Orin NX 8G | p3767-0001 | `kernel_tegra234-p3767-0001-p3768-0000-a0.dtb` |
+| Orin NX 16G | p3767-0000 | `kernel_tegra234-p3767-0000-p3768-0000-a0.dtb` |
 
-1. 短接底板中的**FC REC引脚**与**GND引脚**并重新上电，使设备进入恢复模式。
+## 安装
 
-2. 通过**Type-C端口**连接至**Ubuntu主机**，使用**NVIDIA SDK Manager**刷入**JetPack 5.1.4**系统。
+设备刷入对应系统后，将所选 DTB 复制到设备。以下以 Orin Nano 8G 为例，其他模块替换文件名。
 
-3. 设备正常开机后，打开终端命令行，替换**DTB设备树**文件并重启设备。
+```bash
+sudo cp -a /boot/dtb/kernel_tegra234-p3767-0003-p3768-0000-a0.dtb /boot/dtb/kernel_tegra234-p3767-0003-p3768-0000-a0.dtb.bak
+sudo install -o root -g root -m 644 kernel_tegra234-p3767-0003-p3768-0000-a0.dtb /boot/dtb/kernel_tegra234-p3767-0003-p3768-0000-a0.dtb
+sudo reboot
+```
 
-   - **Jetson Orin Nano 4G** 请使用以下代码
+回退：恢复原 DTB 备份并重启。
 
-     ```bash
-     sudo cp kernel_tegra234-p3767-0004-p3768-0000-a0.dtb /boot/dtb
-     sudo chown 0:0 /boot/dtb/kernel_tegra234-p3767-0004-p3768-0000-a0.dtb
-     sudo chmod 644 /boot/dtb/kernel_tegra234-p3767-0004-p3768-0000-a0.dtb
-     sudo reboot
-     ```
-
-   - **Jetson Orin Nano 8G** 请使用以下代码
-
-     ```bash
-     sudo cp kernel_tegra234-p3767-0003-p3768-0000-a0.dtb /boot/dtb
-     sudo chown 0:0 /boot/dtb/kernel_tegra234-p3767-0003-p3768-0000-a0.dtb
-     sudo chmod 644 /boot/dtb/kernel_tegra234-p3767-0003-p3768-0000-a0.dtb
-     sudo reboot
-     ```
-
-   - **Jetson Orin NX 8G** 请使用以下代码
-
-     ```bash
-     sudo cp kernel_tegra234-p3767-0001-p3768-0000-a0.dtb /boot/dtb
-     sudo chown 0:0 /boot/dtb/kernel_tegra234-p3767-0001-p3768-0000-a0.dtb
-     sudo chmod 644 /boot/dtb/kernel_tegra234-p3767-0001-p3768-0000-a0.dtb
-     sudo reboot
-     ```
-
-   - **Jetson Orin NX 16G** 请使用以下代码
-
-     ```bash
-     sudo cp kernel_tegra234-p3767-0000-p3768-0000-a0.dtb /boot/dtb
-     sudo chown 0:0 /boot/dtb/kernel_tegra234-p3767-0000-p3768-0000-a0.dtb
-     sudo chmod 644 /boot/dtb/kernel_tegra234-p3767-0000-p3768-0000-a0.dtb
-     sudo reboot
-     ```
-
-   > 替换设备树后，3个USB3.2端口可正常工作，Type-C端口系统默认处于关闭状态
-
-4. 配置**Type-C端口**为**Device**模式
-
-   ```bash
-   sudo bash -c 'echo device > /sys/class/usb_role/usb2-0-role-switch/role'
-   ```
-
-   > 使用Type-C端口连接到PC主机时，有以下功能
-   >
-   > 1. COM口，设备的终端命令行
-   > 2. 虚拟网卡，设备ip地址默认为：192.168.55.1
-   > 3. NCM (Network Control Model)，设备可通过PC主机联网，仅支持Linux、Mac
-
-   > *注意：此命令为临时启用，重启会失效
-
-5. 开机默认配置**Type-C端口**为**Device**模式
-
-   ```bash
-   sudo sed -i 's#exit 0#echo device > /sys/class/usb_role/usb2-0-role-switch/role\nexit 0#g' /opt/nvidia/l4t-usb-device-mode/nv-l4t-usb-device-mode-start.sh
-   ```
-
+Type-C 的启用方法见 [USB 配置说明](../README.md#启用-type-c)。
