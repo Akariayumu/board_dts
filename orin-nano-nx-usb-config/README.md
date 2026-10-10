@@ -20,7 +20,10 @@ Jetson Orin Nano/NX 刷入官方系统后，通过替换（或追加）设备树
 
 | 模块 | JetPack 5.1.4 / 5.1.5 (super) | JetPack 6.2 | JetPack 6.2.2 | JetPack 7.2 |
 | --- | --- | --- | --- | --- |
-| Orin Nano 4G | `kernel_tegra234-p3767-0004-*.dtb` | `orin_nano_4g.dtb` | `orin_nano_4g.dtb` | — |
-| Orin Nano 8G | `kernel_tegra234-p3767-0003-*.dtb` | `orin_nano_8g.dtb` | `orin_nano_8g.dtb` | `orin_nano_8gb.dtb` |
-| Orin NX 8G | `kernel_tegra234-p3767-0001-*.dtb` | `orin_nx_8g.dtb` | `orin_nx_8g.dtb` | — |
-| Orin NX 16G | `kernel_tegra234-p3767-0000-*.dtb` | `orin_nx_16g.dtb` | `orin_nx_16g.dtb` | — |
+| Orin Nano 4G | `kernel_tegra234-p3767-0004-*.dtb` | `orin_nano_4g.dtb` | `orin_nano_4g.dtb` | `orin_nano_4g_jp7.dtb` |
+| Orin Nano 8G | `kernel_tegra234-p3767-0003-*.dtb` | `orin_nano_8g.dtb` | `orin_nano_8g.dtb` | `orin_nano_8g_jp7.dtb` |
+| Orin NX 8G | `kernel_tegra234-p3767-0001-*.dtb` | `orin_nx_8g.dtb` | `orin_nx_8g.dtb` | `orin_nx_8g_jp7.dtb` |
+| Orin NX 16G | `kernel_tegra234-p3767-0000-*.dtb` | `orin_nx_16g.dtb` | `orin_nx_16g.dtb` | `orin_nx_16g_jp7.dtb` |
+
+JetPack 7.2 表中四款 `*_jp7.dtb` 的硬件验证状态为待验证。原有 `orin_nano_8gb.dtb` 保留，
+其 `compatible` 指向 p3767-0005；使用前请确认模块 SKU，详见该版本说明。
